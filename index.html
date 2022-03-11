@@ -15,10 +15,34 @@
   <div id="app"></div>
 
   <script type="text/babel">
-    function App(){
-      return <div>Meu App</div>
+
+    const Button = () => {
+      const [contador, setContador] = React.useState(2)
+      function somar(){
+        setContador(contador + 1)
+      }
+      return (
+        <div>
+            <button >Comprar</button>
+            <h1>{contador}</h1>
+        </div>
+      )
     }
-    ReactDom.render(<App />, document.querySelector('#app'))
+
+    const Titulo = () => {
+      const numeroAleatorio = (Math.random() * 100).toFixed(3)
+      return <div>Quais as consequencias de {numeroAleatorio} Bombas </div>
+    }
+
+    const App = () => {
+      return <div>
+        <Titulo />
+        <h2>Aperte para falar</h2>
+        <Button onClick={Button} />
+        </div>
+    }
+    
+    ReactDOM.render(<App />, document.querySelector('#app'))
   </script>
 </body>
 
